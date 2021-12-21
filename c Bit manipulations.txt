@@ -1,0 +1,230 @@
+===>>missing nos in given range
+#include<stdio.h>
+#define n 8
+int call(int []);
+int main(){
+	int a[n]={1,2,4,6,3,7,8};
+	printf("missing no=%d",call(a));
+}
+
+int call(int a[]){
+	int large=a[0];
+for(int i=0;i<n;i++){
+	if(a[i]>large){
+		large=a[i];
+	}
+
+}
+		//printf("\n large=%d",large);
+			int sum=(large*(large+1))/2;
+		//printf("\n sum=%d",sum);
+		int add=0;
+		for(int i=0;i<n;i++){
+		add=add+a[i];
+		}
+		//	printf("\n add=%d",add);
+			
+		
+		return (sum-add);	
+}
+o/p:
+missing no=5
+--------------------------------
+Process exited after 0.05833 seconds with return value 0
+Press any key to continue . . .
+
+==>>missing no using bit manipulations
+#include<stdio.h>
+#define n 8
+int call(int*);
+int main(){
+	int a[n]={1,2,4,5,3,7,8};
+	call(&a[0]);
+	printf("\n missing no is=%d",call(&a[0]));
+	
+}
+int call(int*a){
+	int large=a[0];
+for(int i=0;i<n;i++){
+	if(a[i]>large){
+		large=a[i];
+	}
+}
+	//printf("\n large=%d",large);
+int sum=1;
+
+
+for(int i=2;i<=large;i++){
+  sum=sum^i;	
+}
+//printf("\n sum=%d",sum);
+
+int add=a[0];
+for(int i=1;i<n;i++){
+  add=add^a[i];	
+}
+//printf("\n add=%d",add);
+
+return (add-sum);
+}
+o/p:missing no=5
+
+==>> decimal to binary using bit manipulations
+#include<stdio.h>
+int main(){
+	int n=18,i=0,a[100];
+	while(n!=0){
+		a[i]=n&1;
+		n=n>>1;
+		i++;
+	}
+	
+	for(int j=i-1;j>=0;j--){
+	//printf(" %d",a[j]);	
+	}
+	
+	int sum=0;
+	for(int j=i-1;j>=0;j--){
+		sum=sum*10+a[j];
+	}
+		printf(" binary =%d",sum);	
+
+}
+o/p: binary =10010
+--------------------------------
+Process exited after 0.07873 seconds with return value 0
+Press any key to continue . . .
+
+===>>minimum number of bits to store an integer number
+#include<stdio.h>
+int call(int);
+int main(){
+	int n=127;
+ 
+ printf("total no of bits required=%d",call(n));
+}
+int call(int n){
+		int c=0;
+		while(n!=0){
+		n=n>>1;
+		c++;
+	}	
+		return c;
+}
+o/p:
+total no of bits required=7
+--------------------------------
+Process exited after 0.03725 seconds with return value 0
+Press any key to continue . . .
+
+===>>check whether all bits of a number are UNSET/LOW?
+#include<stdio.h>
+int call(int );
+int main(){
+	int n=50,a[100],i=0,j,no=0,b=11111111,c;
+ 
+ 
+ if(call(n)){
+	printf("Yes, all bits are unset");
+}else
+{printf("No, all bits are not unset");}
+
+}
+int call(int n){
+	int a[100],i=0,j,no=0,b=11111111;
+	
+		while(n!=0){
+		a[i]=n%2;
+		n=n>>1;
+		i++;
+	}
+
+for(j=i-1;j>=0;j--){
+	no=no*10+a[j];
+}
+//printf("no=%d",no);
+
+if((no&b)==0){
+return 1;}
+else{
+	return 0;
+}
+		
+		}
+
+o/p:
+No, all bits are not unset
+--------------------------------
+Process exited after 0.0344 seconds with return value 0
+Press any key to continue . . .
+
+===>>program to count number of 1’s in an integer number.
+#include<stdio.h>
+int call(int );
+int main(){
+
+	int n=15;
+
+	 printf(" Total number of 1's are :%d ",call(n));
+}
+
+int call(int n){
+	int c=0;
+
+	while(n!=0){
+	 	c+=n&1;
+	 	n=n>>1;	 
+	 }
+	 return c;	
+}
+o/p:
+ Total number of 1's are :4
+--------------------------------
+Process exited after 0.03426 seconds with return value 0
+Press any key to continue . . .
+
+===>> swapping 2 integers using bit manipullations
+#include<stdio.h>
+int main(){
+	int a=5,b=7;
+	printf("before change a=%d b=%d \n",a,b);
+	a=a^b;
+	b=a^b;
+	a=a^b;
+	printf("after change a=%d b=%d \n",a,b);
+}
+o/p:
+before change a=5 b=7
+after change a=7 b=5
+
+--------------------------------
+Process exited after 0.1584 seconds with return value 0
+Press any key to continue . . .
+
+
+===>> odd or even using bit manipulations
+#include<stdio.h>
+int main(){
+	int a=8,c;
+	 c=a&1;	
+if(c==0){
+	printf("even");
+}
+else{
+	printf("odd");
+	
+}	
+}
+o/p:
+even
+--------------------------------
+Process exited after 0.03881 seconds with return value 0
+Press any key to continue . . .
+
+
+
+
+
+
+
+

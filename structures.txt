@@ -1,0 +1,366 @@
+===>> basics of strutures
+#include<stdio.h>
+int main(){
+	struct emp{
+		int no;
+		char name[20];
+		float sal;
+	};
+	
+	int i;
+	struct emp d[2];
+		for(i=0;i<2;i++){
+	printf("enter no[%d],name[%d],sal[%d]:",i,i,i);
+	scanf("%d %s %f",&d[i].no,d[i].name,&d[i].sal);}
+	
+		for(i=0;i<2;i++){
+	printf("\n no[%d]=%d,name[%d]=%s,sal[%d]=%f",i,d[i].no,i,d[i].name,i,d[i].sal);}
+
+		printf("\naddress of each structure element:\n");	
+		for(i=0;i<2;i++){
+	
+			printf("\n no[%d]=%u,name[%d]=%u,sal[%d]=%u",i,&d[i].no,i,&d[i].name,i,&d[i].sal);
+		
+		}	
+	printf("\nsize of structure=%d",sizeof(d));	
+	
+}
+o/p:
+enter no[0],name[0],sal[0]:12 pavan 23456
+enter no[1],name[1],sal[1]:23 kuamr 34566
+
+ no[0]=12,name[0]=pavan,sal[0]=23456.000000
+ no[1]=23,name[1]=kuamr,sal[1]=34566.000000
+address of each structure element:
+
+ no[0]=6487520,name[0]=6487524,sal[0]=6487544
+ no[1]=6487548,name[1]=6487552,sal[1]=6487572
+size of structure=56
+--------------------------------
+Process exited after 13.74 seconds with return value 0
+Press any key to continue . . .
+
+
+===>nested structures
+#include<stdio.h>
+struct mob{
+	int no;
+	char c[3];
+};
+struct per{
+	char name[4];
+	int age;
+		struct mob a;
+};
+
+int main(){
+	struct per b,c;
+	printf("\nmob details no,c:'a'");
+	scanf("%s %d %d %s",&b.name,&b.age,&b.a.no,&b.a.c);
+	
+	printf("\nmob details no,c:'a'");
+	printf("%s %d %d %s",b.name,b.age,b.a.no,b.a.c);
+	c.age=b.age;
+	printf("\n c.age=%d",c.age);
+}
+
+==>nested structures using function
+#include<stdio.h>
+float amt(float,int );
+int main(){
+	struct lap{
+		char mod[5];
+		int no;
+	};
+	struct adlap{
+		char co[5];
+		float pr;
+		struct lap a;
+	};
+	struct adlap b={"red",32.45,"asus",12};
+	struct adlap c;
+	printf("%s %f %s %d ",b.co,b.pr,b.a.mod,b.a.no);
+	c=b;
+		printf("\n%s %f %s %d ",c.co,c.pr,c.a.mod,c.a.no);
+		
+		printf("\namt=%f",amt(b.pr,b.a.no));
+}
+
+float amt(float pr,int no ){
+	float amt;
+	amt=pr*no;
+	return amt;
+}
+
+==>> functions using structures
+#include<stdio.h>
+void dis(int ,char *);
+
+int main(){
+	struct bike{
+	int no;
+	char model[20];
+};
+	struct bike a;
+	scanf("%d %s",&a.no,&a.model);
+		printf("%d %s",a.no,a.model);
+		dis(a.no,a.model);
+}
+
+void dis(int no,char *mod){
+	printf("%d %s",no,mod);
+}
+==>Passing entire structure in function
+#include<stdio.h>
+void dis(struct bike );
+struct bike{
+	int no;
+	char model[20];
+};
+
+int main(){
+	struct bike a={12,"blade"};
+	
+	printf("%d %s",a.no,a.model);
+
+		dis(a);
+}
+
+void dis(struct bike a){
+	printf("\n%d %s",a.no,a.model);	
+}
+
+==>> passing entire structure in function
+#include<stdio.h>
+struct add{
+	int age;
+	float height;
+};
+
+struct emp{
+	int no;
+	char name[20];
+	float sal;
+	struct add a;
+};
+ void call(struct emp [] );
+int main(){
+	struct emp b[2];
+		int i;
+		for(i=0;i<2;i++){
+	printf("\nenter no[%d],name[%d],sal[%d],age[%d],height[%d]:",i,i,i,i,i);
+	scanf("%d %s %f %d %f",&b[i].no,&b[i].name,&b[i].sal,&b[i].a.age,&b[i].a.height);
+	}
+			
+	 call(b);	
+}
+ void call(struct emp b[]){
+	 int i;
+	 for(i=0;i<2;i++){
+	printf("\nno[%d]=%d name[%d]=%s sal[%d]=%f age[%d]=%d height[%d]=%f ",i,b[i].no,i,b[i].name,i,b[i].sal,i,b[i].a.age,i,b[i].a.height);}	
+ 	
+ }
+o/p:
+enter no[0],name[0],sal[0],age[0],height[0]:12 pavan 2345 23 5.5
+
+enter no[1],name[1],sal[1],age[1],height[1]:13 kumar 3456 34 5.7
+
+no[0]=12 name[0]=pavan sal[0]=2345.000000 age[0]=23 height[0]=5.500000
+no[1]=13 name[1]=kumar sal[1]=3456.000000 age[1]=34 height[1]=5.700000
+--------------------------------
+Process exited after 27.35 seconds with return value 0
+Press any key to continue . . .
+
+
+==>> passing entire structure in function
+#include<stdio.h>
+struct add{
+	int age;
+	float height;
+};
+
+struct emp{
+	int no;
+	char name[20];
+	float sal;
+	struct add a;
+};
+ void call(struct emp* );
+int main(){
+	struct emp b[2];
+		int i;
+		for(i=0;i<2;i++){
+	printf("\nenter no[%d],name[%d],sal[%d],age[%d],height[%d]:",i,i,i,i,i);
+	scanf("%d %s %f %d %f",&b[i].no,&b[i].name,&b[i].sal,&b[i].a.age,&b[i].a.height);
+	}
+			
+	 call(&b[0]);	
+}
+ void call(struct emp *ptr){
+	 int i;
+	 for(i=0;i<2;i++){
+	printf("\nno[%d]=%d name[%d]=%s sal[%d]=%f age[%d]=%d height[%d]=%f ",i,(ptr+i)->no,i,(ptr+i)->name,i,(ptr+i)->sal,i,(ptr+i)->a.age,i,(ptr+i)->a.height);}	
+ 	
+ }
+o/p:
+enter no[0],name[0],sal[0],age[0],height[0]:1 pavan 2345 32 5.5
+
+enter no[1],name[1],sal[1],age[1],height[1]:2 kumar 4356 45 5.6
+
+no[0]=1 name[0]=pavan sal[0]=2345.000000 age[0]=32 height[0]=5.500000
+no[1]=2 name[1]=kumar sal[1]=4356.000000 age[1]=45 height[1]=5.600000
+--------------------------------
+Process exited after 30.48 seconds with return value 0
+Press any key to continue . . .
+
+
+
+		
+===>> assigning structures
+#include<stdio.h>
+#include<string.h>
+void call(struct bike);
+struct bike{
+		int no;
+		char model[20];
+		float price;
+	};
+int main(){
+	
+	
+	struct bike h;
+	printf("enter no,model,price");
+	scanf("%d %s %f",&h.no,h.model,&h.price);
+//	printf("%d %s %f",h.no,h.model,h.price);
+	call(h);
+}
+
+void call(struct bike h){
+			printf("\nh.no=%d, h.name=%s h.price=%f",h.no,h.model,h.price);
+	struct bike e,f;
+	e.no=h.no;
+	strcpy(e.model,h.model);
+	e.price=h.price;
+		printf("\ne.no=%d, e.name=%s e.price=%f",e.no,e.model,e.price);
+		
+	f=e;
+		printf("\nf.no=%d, f.name=%s f.price=%f",f.no,f.model,f.price);
+	
+	
+}
+o/p:
+enter no,model,price23 hero 234456=>> Assigning structures
+
+h.no=23, h.name=hero h.price=234456.000000
+e.no=23, e.name=hero e.price=234456.000000
+f.no=23, f.name=hero f.price=234456.000000
+--------------------------------
+Process exited after 10.87 seconds with return value 0
+Press any key to continue . . .
+
+===
+#include<stdio.h>
+struct add{
+	float sal;
+};
+struct emp{
+	int no;
+	char name[20];
+	struct add a;
+};
+
+int main(){
+	struct emp b[3],e[3];
+	int i;
+for(i=0;i<3;i++){
+	printf("\nenter no[%d],name[%d],sal[%d]:",i,i,i);
+	scanf("%d %s %f",&b[i].no,&b[i].name,&b[i].a.sal);	
+	}
+	
+		for(i=0;i<3;i++){
+	e[i]=b[i];}
+	
+	for(i=0;i<3;i++){
+		
+	printf("\n no[%d]=%d ,name[%d]=%s ,sal[%d]=%f ",i,e[i].no,i,e[i].name,i,e[i].a.sal);
+		
+	}	
+}
+o/p:
+enter no[0],name[0],sal[0]:1 pavan 3234.43
+
+enter no[1],name[1],sal[1]:2 kumar 4556.77
+
+enter no[2],name[2],sal[2]:3 lol 1234.456
+
+ no[0]=1 ,name[0]=pavan ,sal[0]=3234.429932
+ no[1]=2 ,name[1]=kumar ,sal[1]=4556.770020
+ no[2]=3 ,name[2]=lol ,sal[2]=1234.456055
+--------------------------------
+Process exited after 30.89 seconds with return value 0
+Press any key to continue . . .
+
+
+
+===>> complete structures
+#include<stdio.h>
+struct add{
+	int age;
+	float height;
+};
+//NESTED STRUCTURES
+struct emp{
+	int no;
+	char name[20];
+	float sal;
+	struct add a;
+};
+void call(struct emp *);
+int main(){
+	struct emp d[2];
+	struct emp l;
+	int i;
+	for(i=0;i<2;i++){
+	printf("enter no[%d],name[%d],sal[%d],age[%d],height[%d]",i,i,i,i,i);
+	scanf("%d %s %f %d %f",&d[i].no,d[i].name,&d[i].sal,&d[i].a.age,&d[i].a.height);
+	}
+	for(i=0;i<2;i++){
+	printf("\n no[%d]=%d,name[%d]=%s,sal[%d]=%f,age[%d]=%d,height[%d]=%f",i,d[i].no,i,d[i].name,i,d[i].sal,i,d[i].a.age,i,d[i].a.height);
+	}
+	//ASSINGMENT STRUCTURES
+	l=d[1];
+			printf("\n L \n");
+		printf("\n no[%d]=%d,name[%d]=%s,sal[%d]=%f,age[%d]=%d,height[%d]=%f",i,l.no,i,l.name,i,l.sal,i,l.a.age,i,l.a.height);
+	//STRUCTURE POINTERS 
+	printf("\n ptr \n");
+	struct emp *ptr=&d[1];
+printf("\n no=%d,name=%s,sal=%f,age=%d,height=%f",ptr->no,ptr->name,ptr->sal,ptr->a.age,ptr->a.height);
+	 // STRUCTURE FUNTIONS
+	  call(d); 	
+	
+}
+
+void call(struct emp *ptr){
+	int i;
+	printf("\n function def ptr \n");
+	printf("\n no=%d,name=%s,sal=%f,age=%d,height=%f",ptr->no,ptr->name,ptr->sal,ptr->a.age,ptr->a.height);
+}
+
+o/p:
+enter no[0],name[0],sal[0],age[0],height[0]1 pavan 23000 22 5.5
+enter no[1],name[1],sal[1],age[1],height[1]2 kumar 24000 23 5.8
+
+ no[0]=1,name[0]=pavan,sal[0]=23000.000000,age[0]=22,height[0]=5.500000
+ no[1]=2,name[1]=kumar,sal[1]=24000.000000,age[1]=23,height[1]=5.800000
+ L
+
+ no[2]=2,name[2]=kumar,sal[2]=24000.000000,age[2]=23,height[2]=5.800000
+ ptr
+
+ no=2,name=kumar,sal=24000.000000,age=23,height=5.800000
+ function def ptr
+
+ no=1,name=pavan,sal=23000.000000,age=22,height=5.500000
+--------------------------------
+Process exited after 26.75 seconds with return value 0
+Press any key to continue . . .

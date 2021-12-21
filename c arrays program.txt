@@ -1,0 +1,202 @@
+===>>insert elements in array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[123],n;
+	printf("enter size of array:");
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{scanf("%d",&a[i]);
+	}
+	for(int i=0;i<n;i++)
+	{printf("%d",a[i]);
+	}
+	}
+===>> enter an element in array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[123],n,search,c=0;
+	printf("enter size of array:");
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{scanf("%d",&a[i]);
+	}
+	
+printf("enter search no:");
+scanf("%d",&search);
+for(int i=0;i<n;i++)
+	{if(a[i]==search)
+	{c=c+1;}
+	}
+if(c>0)
+{printf("found");
+}
+else{printf("not found");
+}
+
+}
+
+===>>smallest element in array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[213],n,i,j;
+	printf("enter size:");
+	scanf("%d",&n);
+	printf("enter elements of array:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("given elements of array:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	
+	
+	int small=a[0];
+		for(i=1;i<n;i++)
+	{	if(small>a[i])
+	     {small=a[i];
+		 }
+	}
+	
+	printf("\n small=%d",small);
+		}
+===>>largest no in array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[213],n,i,j;
+	printf("enter size:");
+	scanf("%d",&n);
+	printf("enter elements of array:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("given elements of array:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	
+	
+	int large=a[0];
+		for(i=1;i<n;i++)
+	{	if(large<a[i])
+	     {large=a[i];
+		 }
+	}
+	
+	printf("\n large=%d",large);
+	}
+
+===>>sum of elements in array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[213],n,i,j;
+	printf("enter size:");
+	scanf("%d",&n);
+	printf("enter elements of array:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("given elements of array:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	
+	
+	int sum=a[0];
+		for(i=1;i<n;i++)
+	{ sum=sum+a[i];
+	}
+	
+	printf("\n sum=%d",sum);
+	}
+
+===>>given elements same or not
+	#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main(){
+	int a[213],b[111],n,m,i,j;
+	printf("enter size n:");
+	scanf("%d",&n);
+	printf("enter size m:");
+	scanf("%d",&m);
+	printf("enter elements of array a:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("enter elements of array b:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&b[i]);	}
+
+    printf("given elements of array a:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	printf("\n given elements of array b:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",b[i]);	}
+	
+	int c=0; 
+	if(n==m)
+	{	for(i=0;i<n;i++)
+	{if(a[i]==b[i])
+	   {c=c+1;}	}
+	}
+    
+    if(c==m)
+    {printf("\n same");}
+    else
+    {printf("\n not");
+	}
+	
+}
+
+
+===>sum of square elements of array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+	int a[213],n,i,j;
+	printf("enter size:");
+	scanf("%d",&n);
+	printf("enter elements of array:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("given elements of array:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	
+	
+	int sum=0;
+		for(i=0;i<n;i++)
+	{ sum=sum+pow(a[i],2);
+	}
+	
+	printf("\n sum=%d",sum);
+	}
+
+===>> reverse an array
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<math.h>
+int main(){
+	int a[213],n,i,j;
+	printf("enter size:");
+	scanf("%d",&n);
+	printf("enter elements of array:");
+	for(i=0;i<n;i++)
+	{scanf("%d",&a[i]);	}
+    printf("given elements of array:");
+	for(i=0;i<n;i++)
+	{printf(" %d ",a[i]);	}
+	
+	printf("\n reverse elements of array:");
+	for(i=n-1;i>=0;i--)
+	{printf(" %d ",a[i]);	}
+
+	
