@@ -2,6 +2,8 @@
 int main(){
 	//implicit typecasting : it happened automatically by compiler, if there 2 variable of different datatype ,lower size datatype variable
 						//	can be implicitly copied to higher size datatype variable.
+	//implicit datatype sequence:
+		//	bool->char->short int->int ->unsigned int -> long int-> unsigned long int ->long long int->float-> double->long double.
 	short int a=5;
 	char ch = 'A';
 	
