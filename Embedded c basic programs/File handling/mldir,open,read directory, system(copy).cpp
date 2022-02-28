@@ -22,9 +22,9 @@ int main(){
 	
 	
 	 system("pwd");
-	 /*while ((de = readdir(dir_var)) != NULL)
+	 while ((de = readdir(dir_var)) != NULL)
             printf("%s\n", de->d_name);
-            */
+            
 	closedir(dir_var);
 	
 }
