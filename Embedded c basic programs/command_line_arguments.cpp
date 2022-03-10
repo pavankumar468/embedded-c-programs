@@ -13,3 +13,15 @@ int main(int argc, char *argv[]){
 	return 0;
 	
 }
+
+/* o/p:
+C:\Users\ajay.t\Desktop\Embedded c basic programs>command_line_arguments.exe
+arg[0] = command_line_arguments.exe
+
+C:\Users\ajay.t\Desktop\Embedded c basic programs>command_line_arguments.exe pavan kumar jan
+arg[0] = command_line_arguments.exe
+arg[1] = pavan
+arg[2] = kumar
+arg[3] = jan
+
+*/
