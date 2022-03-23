@@ -1,4 +1,6 @@
-//Exception handling: while program is running for some i/ps output might get error ,so those i/p values that might get error is checked in try block , those exceptions sent to catch using throw block , those exceptions are handled in catch block
+//Exception handling: while program is running for some i/ps output might get error ,so those i/p values
+//that might get error is checked in try block , those exceptions sent to catch using throw block , 
+//those exceptions are handled in catch block
 
 #include<iostream>
 using namespace std;
